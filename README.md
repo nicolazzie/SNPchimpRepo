@@ -3,8 +3,8 @@ SNPchimpRepo: _a suite of useful programs for SNPchiMp users_
 *ref: E.L. Nicolazzi (Fondazione Parco Tecnologico Padano) - Via Einstein, Loc. Cascina Codazza (26900) Lodi (Italy). Email: ezequiel [dot] nicolazzi [at] tecnoparco [dot] org*
 
 
-The goal of this suite of programs is to help users doing some routine work without having to do any programming. 
-I'll put all programs in this directory, source codes included, and will update this readme file accordingly.
+The goal of this suite of programs is to help users doing some routine work without doing any actual programming. 
+This directory includes source codes, so you're able to see what it is doing step by step (please see "Disclaimer" section).
 
 
 ### **1) Getting the programs and requirements**
@@ -13,31 +13,34 @@ Further information on how to install git can be found at: http://git-scm.com/bo
 
     % git clone --recursive https://github.com/nicolazzie/SNPchimpRepo
 
-This pipeline is mainly for linux/unix/mac users, but it should run on windows OSs too. Please note that I won't be able to give any support or troubleshooting for Windows users.
-To run these programs you should only have Python (2.x) already installed on your computer, although 2.7 is adviced (Mac users have by default Python2.6. Although runtime will be slower, it should work anyway). 
+These programs are fully tested on Linux/Unix/Mac, but they should run on Windows OSs too. Please note that no support or troubleshooting for Windows-specific issues will be provided.
+To run these programs you need Python (2.x) installed on your computer. Python 2.7 is adviced (note that Mac users have Python 2.6 installed by defaul; runtime will be slower but it should do the work anyway!). 
 
 ### **2) Programs**
 
 #### **iConvert.py**
-_iConvert.py_ program converts genotype allele formats, using SNPchimp files and gentoypes in PLINK format. You need 3 input files: 2 PLINK (e.g. ped & map) files and 1 SNPchimp output file (coming from the download menu), containing the allele conversion information for the SNP chip you need to convert.
-This program is able to handle conversion for all SNPchips of all species hosted in SNPchimp (both Illumina/Illumina-based and Affymetrix SNP chips).
+_iConvert.py_ program converts genotype allele formats, using SNPchimp files and gentoypes in PLINK format. You need 4 input files: 2 PLINK files (e.g. ped & map), 1 SNPchimp output file (coming from the download menu with both input and output allele codings) and a parameter file. This program is able to handle conversion for all SNPchips of all species hosted in SNPchimp (both Illumina/Illumina-based and Affymetrix SNP chips).
 
 To run this program (from command line), just type:
 
     % python iConvert.py
 
-_iConvert.py_ program requires a parameter file, named "convert.param". You can choose your own parameter file name by indicating the new parameter file name after the "-p" option. For example, if the new parameter file is named "parameter_file" you should run the program using the following:
+If you need help with PLINK and PLINK formats, please see: http://pngu.mgh.harvard.edu/~purcell/plink/
+If you need help with SNPchiMp, please see: http://bioinformatics.tecnoparco.org/SNPchimp/index.php/faqs or contact me.
+As previoulsy stated, _iConvert.py_ requires a parameter file, named "convert.param". You can choose your own parameter filename by indicating the new parameter file name after the "-p" option. For example, if your parameter file is named "parameter_file" you should run the program using the following:
 
     % python iConvert.py -p parameter_file
 
-The parameter file is self explaining. Please DO NOT change the variable names and follow the instructions embedded in the file.
-_TIP_: If you don't know what allele format your data is, you have two options: 1) do some tests. The program will stop if your genotypes are not in the right input allelic format (not efficient, since genotypes are read at the end of the program!) or; 2) find a SNP with different FORWARD-TOP allele coding (e.g. SNP 'Hapmap42400-BTA-102731' is T/C in FORWARD and A/G in TOP allele formats. If your genotypes at that SNP are T/C, your input format is FORWARD, and TOP if A/G).
+The parameter file is self explaining: DO NOT change the variable names and follow the instructions embedded in the file.
 
-Genotypes with the converted allelic format will be written to a file named exactly as the input PED file + "\_updated"  (e.g. if input PED file is named "input.ped", then the converted genotypes file will be named 'input\_updated.ped')
-In addition, if required,this program allows you to update the coordinates (chromosome and position) of your SNPs to a desired assembly, while updating your allele format. Just indicate "Y" in the "UPDATE\_map" variable.
-If you desire only to update your map information, you need to specify "NO" for both the "IN\_format" and "OUT\_format" variables.
+Genotypes with the converted allelic format will be written to a file named exactly as the input PED file + "\_updated"  (e.g. if input PED file is named _"input.ped"_, then the converted genotypes file will be named _"input\_updated.ped"_).
+In addition, if required, this program allows you to update your map coordinates (chromosome and position) to a desired assembly. All you need to do is indicate "Y" in the "UPDATE\_map" variable (the program will use SNPchimp information and update the user map accordingly).
 
-_Self advertisement_: If you're using the Affymetrix technology, you might be interested in the AffyPipe software, that you can find at: https://github.com/nicolazzie/AffyPipe.git
+_NOTE_:
+	1) If you don't know what allele format your data is, you have two options: 1) do some tests. The program will stop if your genotypes are not in the right input allelic format (not an efficient choice -genotypes are read at the end of the program!- but the most simple) or; 2) find a SNP with different FORWARD-TOP allele coding (e.g. SNP 'Hapmap42400-BTA-102731' is T/C in FORWARD and A/G in TOP allele formats. If your genotypes at that SNP are T/C, your input format is FORWARD, and TOP if A/G).
+	2) If you desire __only__ to update your map information, you need to specify "NO" for both the _"IN\_format"_ and _"OUT\_format"_ variables in the parameter file
+
+**_Self advertisement_: If you're using the Affymetrix technology, you might be interested in the AffyPipe software, that you can find at: https://github.com/nicolazzie/AffyPipe.git**
 
 
 
