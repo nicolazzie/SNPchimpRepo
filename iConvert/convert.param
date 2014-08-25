@@ -1,0 +1,46 @@
+###############################################################
+####                   convert.param                       ####
+####                					   ####
+#### This is the parameter file of "iConvert.py" program   ####
+#### It uses SNPchimp output as input!			   ####
+#### See:						   ####
+####     http:/bioinformatics.tecnoparco.org/SNPchimp  	   ####
+#### for more info    	   	    	    	    	   ####
+#### 	 	      	   	    	    	    	   ####
+#### 	 	      	   	    	    	    	   ####
+#### For comments/bug report, please write to:		   ####
+####           ezequiel.nicolazzi@tecnoparco.org           ####
+####							   ####
+#### NOTE:						   ####  
+#### 1) The program will skip anything written after a "#" ####
+#### 2) DO NOT CHANGE THE VARIABLE NAMES!                  ####
+####							   ####
+#### History:						   ####
+####    Jul 2014 - ELN original version			   ####
+####							   ####
+#####################################################ELN#######
+
+#### Name of PED (plink style) file
+PEDfile       = EXAMPLEFILES/Bovine_54k1.ped
+
+#### Name of MAP (plink style) file
+MAPfile       = EXAMPLEFILES/Bovine_54k1.map
+
+#### Missing value for genotypes in PLINK files
+MISSING       = 0
+
+#### INPUT allele format
+####   - If Affymetrix chip: aff_forward, aff_ab, NO 
+####   - If Illumina or Illumina-based chip: ill_top, ill_forward, ill_ab, NO
+IN_format     = ill_forward
+
+#### Update your map (chrom and position) information with data in SNPchimp? (Y/N)
+UPDATE_map    = Y
+
+#### Name of SNPchimp file containing allele conversions
+SNPchimp_file = EXAMPLEFILES/SNPchimp_result_685452573.csv 
+
+#### OUTPUT allele format
+####   - If Affymetrix chip: aff_forward, aff_ab, NO
+####   - If Illumina or Illumina-based chip: ill_top, ill_forward, ill_ab, NO
+OUT_format    = ill_top
