@@ -27,7 +27,7 @@ To run this program (from command line), just type:
 
 If you need help with PLINK and PLINK formats, please see: http://pngu.mgh.harvard.edu/~purcell/plink/
 If you need help with SNPchiMp, please see: http://bioinformatics.tecnoparco.org/SNPchimp/index.php/faqs or contact me.
-As previoulsy stated, _iConvert.py_ requires a parameter file, named "convert.param". You can choose your own parameter filename by indicating the new parameter file name after the "-p" option. For example, if your parameter file is named "parameter_file" you should run the program using the following:
+As previoulsy stated, _iConvert.py_ requires a parameter file, named _"convert.param"_. You can choose your own parameter filename by indicating the new parameter file name after the "-p" option. For example, if your parameter file is named _"parameter_file"_ you should run the program using the following:
 
     % python iConvert.py -p parameter_file
 
@@ -37,14 +37,14 @@ Genotypes with the converted allelic format will be written to a file named exac
 In addition, if required, this program allows you to update your map coordinates (chromosome and position) to a desired assembly. All you need to do is indicate "Y" in the "UPDATE\_map" variable (the program will use SNPchimp information and update the user map accordingly).
 
 _NOTE_:
-	1) If you don't know what allele format your data is, you have two options: 1) do some tests. The program will stop if your genotypes are not in the right input allelic format (not an efficient choice -genotypes are read at the end of the program!- but the most simple) or; 2) find a SNP with different FORWARD-TOP allele coding (e.g. SNP 'Hapmap42400-BTA-102731' is T/C in FORWARD and A/G in TOP allele formats. If your genotypes at that SNP are T/C, your input format is FORWARD, and TOP if A/G).
-	2) If you desire __only__ to update your map information, you need to specify "NO" for both the _"IN\_format"_ and _"OUT\_format"_ variables in the parameter file
+ - If you don't know what allele format your data is, you have two options: 1) do some tests. The program will stop if your genotypes are not in the right input allelic format (not an efficient choice -genotypes are read at the end of the program!- but the most simple) or; 2) find a SNP with different FORWARD-TOP allele coding (e.g. SNP 'Hapmap42400-BTA-102731' is T/C in FORWARD and A/G in TOP allele formats. If your genotypes at that SNP are T/C, your input format is FORWARD, and TOP if A/G).
+ - If you __only__ wish to update your map information with the coordinates provided by SNPchiMp, you need to specify "NO" for both the _"IN\_format"_ and _"OUT\_format"_ variables in the parameter file
 
 **_Self advertisement_: If you're using the Affymetrix technology, you might be interested in the AffyPipe software, that you can find at: https://github.com/nicolazzie/AffyPipe.git**
 
 
 
 ### **Disclaimer**
-This repository is a set of free tools that uses proprietary software that is publicly available online: you can redistribute and/or modify these programs, but at your own risk. The programs above are distributed in the hope that they will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details: http://www.gnu.org/licenses/.this
-These programs are intended for research and have not a commercial intent, but they can be used freely by any organization. The only goal is to help people.
-For bug report, feedback and questions (PLEASE read the carefully this README file before sending your question) contact ezequiel [dot] nicolazzi [at] tecnoparco [dot] org.
+_This repository is a set of free tools that uses proprietary software that is publicly available online: you can redistribute and/or modify these programs, but at your own risk. The programs above are distributed in the hope that they will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details: http://www.gnu.org/licenses/.this
+These programs are intended for research and have not a commercial intent, but they can be used freely by any organization. The only goal is to help people._
+_For bug report, feedback and questions (PLEASE read the carefully this README file before sending your question) contact ezequiel [dot] nicolazzi [at] tecnoparco [dot] org._
