@@ -126,7 +126,7 @@ for en,line in enumerate(open(CHIMP)):
             except ValueError:
                 bomb('Input or output Illumina FORWARD allele coding required,' + \
                          'but "Alleles_A_B_FORWARD" not found in SNPchimp file!')
-        if inFMT == 'ill_TOP' or outFMT == 'ill_TOP':
+        if inFMT == 'ill_top' or outFMT == 'ill_top':
             try:
                 form = head.index('Alleles_A_B_TOP')
                 if inFMT == 'ill_top': formats[0] = form
@@ -164,6 +164,7 @@ for en,line in enumerate(open(CHIMP)):
         else:
             SNPdata[lista[othinfo[3]]] = {lista[formats[0]][0]:lista[formats[1]][0],
                                           lista[formats[0]][2]:lista[formats[1]][2]}
+
 
 if len(SNPdata) == 0:
     bomb("Data in SNP chimp file is incorrect! Probably conversion info for your SNPs is not available")
