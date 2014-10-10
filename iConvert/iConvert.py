@@ -1,3 +1,12 @@
+"""
+Program that automatically converts allele formats and/or updates map information using SNPchimp
+Original version: Ezequiel L. Nicolazzi (Fondazione Parco Tecnologico Padano, Italy), July 2014.
+Changes:
+   -Oct 2014 (ELN): Included compatibility for Python < 2.5 (thank you Geoff Pollott)
+
+For bug report/comments: ezequiel.nicolazzi@tecnoparco.org
+"""
+
 from optparse import OptionParser
 import sys,os, time
 
@@ -56,14 +65,26 @@ else:
             inFMT = line.strip().split('=')[1].lower()
             if not inFMT: bomb('Input allele format not provided in parameter file')
             else:inFMT = inFMT.strip().split('#')[0]
-            if not any([match == inFMT for match in ['ill_ab','ill_forward','ill_top','aff_ab','aff_forward','no']]):
-                bomb('Wrong option for "IN_format" variable in param file!')
+##          Disabled to ensure compatibility to Python <2.5 (upgrade highly recommended)
+#            if not any([match == inFMT for match in ['ill_ab','ill_forward','ill_top','aff_ab','aff_forward','no']]):
+            match=False
+            for test in ['ill_ab','ill_forward','ill_top','aff_ab','aff_forward','no']:
+                if inFMT==test:
+                    match=True
+                    break
+            if not match:bomb('Wrong option for "IN_format" variable in param file!')
         elif 'UPDATE_map' in line:
             tupd = line.strip().split('=')[1].lower()
             if not tupd: bomb('Option to update map info (UPDATE_map) not provided in parameter file')
             else: tupd = tupd.strip().split('#')[0]
-            if not any([match == tupd for match in ['y','n']]):
-                bomb('Wrong option for "UPDATE_map" variable in param file!')
+##          Disabled to ensure compatibility to Python <2.5 (upgrade highly recommended)
+#            if not any([match == tupd for match in ['y','n']]):
+            match=False
+            for test in ('y','n'):
+                if tupd==test:
+                    match=True
+                    break
+            if not match:bomb('Wrong option for "UPDATE_map" variable in param file!')              
             else:
                 if tupd == 'y': upd = True
                 else: upd = False
@@ -76,8 +97,14 @@ else:
             outFMT = line.strip().split('=')[1].lower()
             if not outFMT: bomb('Out format not provided in parameter file')
             else: outFMT = outFMT.strip().split('#')[0]
-            if not any([match == outFMT for match in ['ill_ab','ill_forward','ill_top','aff_ab','aff_forward','no']]):
-                bomb('Wrong option for "OUT_format" variable in param file!')
+##          Disabled to ensure compatibility to Python <2.5 (upgrade highly recommended)
+#            if not any([match == outFMT for match in ['ill_ab','ill_forward','ill_top','aff_ab','aff_forward','no']]):
+            match=False
+            for test in ['ill_ab','ill_forward','ill_top','aff_ab','aff_forward','no']:
+                if outFMT==test:
+                    match=True
+                    break
+            if not match:bomb('Wrong option for "OUT_format" variable in param file!')
             else:
                 if 'aff' in inFMT and 'ill' in outFMT:
                     bomb("WHAT?!? I (you) can't convert alleles from Affymetrix to Illumina!!!")

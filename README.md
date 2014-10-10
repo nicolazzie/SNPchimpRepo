@@ -14,7 +14,7 @@ Further information on how to install git can be found at: http://git-scm.com/bo
     % git clone --recursive https://github.com/nicolazzie/SNPchimpRepo
 
 These programs are fully tested on Linux/Unix/Mac, but they should run on Windows OSs too. Please note that no support or troubleshooting for Windows-specific issues will be provided.
-To run these programs you need Python (2.x) installed on your computer. Python 2.7 is adviced (note that Mac users have Python 2.6 installed by defaul; runtime will be slower but it should do the work anyway!). 
+To run these programs you need Python (2.x, latest Python highly recommended for better performances) installed on your computer. Python 2.7 is adviced (note that Mac users have Python 2.6 installed by defaul; runtime will be slower but it should do the work anyway!). 
 
 ### **2) Programs**
 
