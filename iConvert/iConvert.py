@@ -3,6 +3,7 @@ Program that automatically converts allele formats and/or updates map informatio
 Original version: Ezequiel L. Nicolazzi (Fondazione Parco Tecnologico Padano, Italy), July 2014.
 Changes:
    -Oct 2014 (ELN): Included compatibility for Python < 2.5 (thank you Geoff Pollott)
+                    Fixed a bug caused by captial letters used internally (again, thans G.Pollott!)
 
 For bug report/comments: ezequiel.nicolazzi@tecnoparco.org
 """
@@ -115,18 +116,18 @@ else:
 logit('Parameters read from: ' + opt.PARAM_FILE)
 logit('    - PLINK PED file         : %s' % PED)
 logit('    - PLINK MAP file         : %s' % MAP)
-if inFMT=='NO': logit('    - Input allele format    : %s' % 'NOT REQUIRED')
+if inFMT=='no': logit('    - Input allele format    : %s' % 'NOT REQUIRED')
 else:logit('    - Input allele format    : %s' % inFMT)
 logit('    - Update map information : %s' % tupd)
 logit('    - SNPchimp file          : %s' % CHIMP)
-if outFMT=='NO': logit('    - Output allele format   : %s' % 'NOT REQUIRED')
+if outFMT=='no': logit('    - Output allele format   : %s' % 'NOT REQUIRED')
 else:logit('    - Output allele format   : %s' % outFMT)
 
 ### Check consistency of options
 onlymap = False
-if inFMT == 'NO' and outFMT != 'NO': bomb('If only map update is required, both IN_format and OUT_format must be = NO')
-elif inFMT != 'NO' and outFMT == 'NO': bomb('If only map update is required, both IN_format and OUT_format must be = NO')
-elif inFMT =='NO' and outFMT == 'NO': 
+if inFMT == 'no' and outFMT != 'no': bomb('If only map update is required, both IN_format and OUT_format must be = NO')
+elif inFMT != 'no' and outFMT == 'no': bomb('If only map update is required, both IN_format and OUT_format must be = NO')
+elif inFMT =='no' and outFMT == 'no': 
     onlymap = True
     if not upd: bomb('Nothing will be done (no conversion or map update required!')
 elif inFMT == outFMT: bomb('Input and output allele formats are equal! This is a CONVERSION tool!\n'+
