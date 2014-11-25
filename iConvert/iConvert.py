@@ -1,9 +1,10 @@
 """
 Program that automatically converts allele formats and/or updates map information using SNPchimp
 Original version: Ezequiel L. Nicolazzi (Fondazione Parco Tecnologico Padano, Italy), July 2014.
-Changes:
+History:
    -Oct 2014 (ELN): Included compatibility for Python < 2.5 (thank you Geoff Pollott)
                     Fixed a bug caused by captial letters used internally (again, thans G.Pollott!)
+   -Nov 2014 (ELN): Included a control over .ped length (controlling # columns - Thank you Christine Baes!)
 
 For bug report/comments: ezequiel.nicolazzi@tecnoparco.org
 """
@@ -243,6 +244,9 @@ if not onlymap:
             if len(test) == (6 + (enmap + 1) * 2): tab = True
         if tab: pedline = line.strip().split('\t')
         else: pedline = line.strip().split()
+        if ((enmap+1)*2+6) != len(pedline):
+            bomb(" Considering # of SNPs in .map (" +str(enmap+1)+"), # of columns in .ped should be "+str((enmap+1)*2+6)+" but "+str(len(pedline))+" found.\n"\
+                +"             Check your .ped and .map files. Usually the problem is in the first line(s)...")
         genotypes = [pedline[6 + x] + pedline[7 + x] for x in range(0, ((enmap+1)*2)-1, 2)]
         seq = -1
         genout = []
