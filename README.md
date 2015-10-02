@@ -18,6 +18,30 @@ To run these programs you need Python (2.x, latest Python highly recommended for
 
 ### **2) Programs**
 
+
+#### **pedda.py**
+_pedda.py_ program converts Illumina ROW files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). Since this program was not originally coded to be released, there are no parameter files available. You need to directly edit the parameters in the program (see the "MODIFY HERE" section).
+
+First edit the parameters:
+1) open the pedda.py file (use your desired editor: emancs, vi, vim, nano, gedit, etc...
+2) Modify the 8 parametersin the "MODIFY ONLY THERE VARIABLES SECTION" (leave everything else unchanged)
+   - Variable **finrep** is the path to the FinalReport file (can be absolute or relative).
+   - Variable **snpmap** is the path to the SNP map file, the one provided with any FinalReport (can be absolute or relative)
+   - Variable **allele** is the allele strand you want to extract from the FinalReport file (options: "top","forward" or "ab")
+   - Variable **SNPid_pos** is the position of the SNPids in the FinalReport file (usually they are in the first column. Accepted values: 1 to N)
+   - Variable **INDid_pos** is the position of the individuals ids in the FinalReport file (usually they are in the second column. Accepted values: 1 to N)
+   - Variable **outname** is the name of the output file (you'll find 2 files named as the name given + .ped and .map)
+   - Variable **brdcode** is the name of the breed analysed. This info will be used on the "FID" field on the ped file (e.g. first column).
+   - Variable **sep** is the separator of the input files. Options available: '\t' and  ','  and ' '
+
+To run the program (from command line), just type:
+
+    % python pedda.py
+
+After a quick parameter and quality check, the program should tell you the names of the output files. No fancy options available. Sorry.
+For any question, feedback or bug report, please contact: ezequiel.nicolazzi@ptp.it
+
+
 #### **iConvert.py**
 _iConvert.py_ program converts genotype allele formats, using SNPchimp files and gentoypes in PLINK format. You need 4 input files: 2 PLINK files (e.g. ped & map), 1 SNPchimp output file (coming from the download menu with both input and output allele codings) and a parameter file. This program is able to handle conversion for all SNPchips of all species hosted in SNPchimp (both Illumina/Illumina-based and Affymetrix SNP chips).
 
@@ -41,7 +65,6 @@ _NOTE_:
  - If you __only__ wish to update your map information with the coordinates provided by SNPchiMp, you need to specify "NO" for both the _"IN\_format"_ and _"OUT\_format"_ variables in the parameter file
 
 **_Self advertisement_: If you're using the Affymetrix technology, you might be interested in the AffyPipe software, that you can find at: https://github.com/nicolazzie/AffyPipe.git**
-
 
 
 ### **Disclaimer**
