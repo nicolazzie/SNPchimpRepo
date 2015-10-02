@@ -19,11 +19,11 @@ To run these programs you need Python (2.x, latest Python highly recommended for
 ### **2) Programs**
 
 
-#### **pedda.py**
-_pedda.py_ program converts Illumina ROW files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). Since this program was not originally coded to be released, there are no parameter files available. You need to directly edit the parameters in the program (see the "MODIFY HERE" section).
+#### **PEDDA_ROW**
+_pedda_row.py_ program converts Illumina ROW files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). Since this program was not originally coded to be released, there are no parameter files available. You need to directly edit the parameters in the program (see the "MODIFY HERE" section).
 
 First edit the parameters:
-1) open the pedda.py file (use your desired editor: emancs, vi, vim, nano, gedit, etc...
+1) open the pedda_row.py file (use your desired editor: emancs, vi, vim, nano, gedit, etc...)
 2) Modify the 8 parametersin the "MODIFY ONLY THERE VARIABLES SECTION" (leave everything else unchanged)
    - Variable **finrep** is the path to the FinalReport file (can be absolute or relative).
    - Variable **snpmap** is the path to the SNP map file, the one provided with any FinalReport (can be absolute or relative)
@@ -36,10 +36,33 @@ First edit the parameters:
 
 To run the program (from command line), just type:
 
-    % python pedda.py
+    % python pedda_row.py
 
 After a quick parameter and quality check, the program should tell you the names of the output files. No fancy options available. Sorry.
 For any question, feedback or bug report, please contact: ezequiel.nicolazzi@ptp.it
+
+
+
+#### **PEDDA_MATRIX**
+_pedda_matrix.py_ program converts Illumina MATRIX files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). Since this program was not originally coded to be released, there are no parameter files available. You need to directly edit the parameters in the program (see the "MODIFY HERE" section).
+
+First edit the parameters:
+1) open the pedda_matrix.py file (use your desired editor: emancs, vi, vim, nano, gedit, etc...)
+2) Modify the 5 parametersin the "MODIFY ONLY THERE VARIABLES SECTION" (leave everything else unchanged)
+   - Variable **finrep** is the path to the FinalReport file (can be absolute or relative).
+   - Variable **snpmap** is the path to the SNP map file, the one provided with any FinalReport (can be absolute or relative)
+   - Variable **outname** is the name of the output file (you'll find 2 files named as the name given + .ped and .map)
+   - Variable **brdcode** is the name of the breed analysed. This info will be used on the "FID" field on the ped file (e.g. first column).
+   - Variable **sep** is the separator of the input files. Options available: '\t' and  ','  and ' '
+
+To run the program (from command line), just type:
+
+    % python pedda_matrix.py
+
+After a quick parameter and quality check, the program should tell you the names of the output files. No fancy options available. Sorry.
+For any question, feedback or bug report, please contact: ezequiel.nicolazzi@ptp.it
+
+
 
 
 #### **iConvert.py**
