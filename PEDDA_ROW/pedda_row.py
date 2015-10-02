@@ -152,6 +152,7 @@ print "### Processing SNPmap file"
 
 conv={}
 for a in open(snpmap):
+    if 'Chromosome' in a:continue
     nn,snpid,cro,pos,rest=a.strip().split(sep,4)
     conv[snpid]=(cro,pos)
 print "====> Total number of SNPs processed:",len(conv)

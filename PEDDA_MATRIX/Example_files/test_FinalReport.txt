@@ -1,0 +1,20 @@
+[Header]				
+GSGT Version 1.1.1		
+Processing Date,1/1/1000 0:00 PM
+Content	testfile.bpm			
+Num SNPs,10		
+Total SNPs,10		
+Num Samples,2		
+Total Samples,2		
+[Data]				
+,ANIM_38,ANIM_39
+snp1,AB,BB
+snp2,AB,AB
+snp3,AA,AA
+snp4,AA,AA
+snp5,BB,AB
+snp6,AA,AA
+snp7,AB,AA
+snp8,AA,--
+snp9,--,AB
+snp10,AB,BB
