@@ -138,7 +138,7 @@ for en,a in enumerate(open(finrep)):
         snp=0
         anim+=1
         outped.write('%s %s 0 0 0 -9 %s\n' % (brdcode,name[anim],' '.join(geno)))
-        print 'Finshed processing individual:',id_sample,' - Total SNPs:',len(geno)
+        print 'Finshed processing individual:',name[anim],' - Total SNPs:',len(geno)
         geno=[]
         geno.append(alle1+' '+alle2)
         name.append(id_sample)
