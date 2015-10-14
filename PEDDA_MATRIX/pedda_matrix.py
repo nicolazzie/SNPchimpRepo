@@ -19,7 +19,7 @@ import sys,os
 ################################# MODIFY ONLY THESE VARIABLES ##############################################################
 ############################################################################################################################
 
-finrep='Example_files/test_FinalReport.txt' # Final report in ROW format (for matrix format, there is another software!)
+finrep='Example_files/test_FinalReport.txt' # Final report in MATRIX format (for ROW format, there is another software!)
 snpmap='Example_files/test_SnpMap.txt'      # SNP map (orinal from Illumina)
 
 outname='test_outputfile'                   # Name of output PED and MAP files
