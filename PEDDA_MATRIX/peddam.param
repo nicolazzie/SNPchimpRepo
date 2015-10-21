@@ -1,0 +1,36 @@
+###############################################################
+####                   peddam.param                        ####
+####							   ####
+#### This is a parameter file of "pedda_matrix.py" program ####
+####                                                       ####
+#### See:						   ####
+####     http:/bioinformatics.tecnoparco.org/SNPchimp  	   ####
+#### for more info					   ####
+####							   ####
+#### 							   ####
+#### For comments/bug report, please write to:		   ####
+####           ezequiel.nicolazzi@ptp.it   		   ####
+####							   ####
+#### NOTE:						   ####
+#### 1) The program will skip anything written after a "#" ####
+#### 2) DO NOT CHANGE THE VARIABLE NAMES!                  ####
+#### 	       	      	  	      			   ####
+#### History:						   ####
+####    Sept 2015 - ELN original version		   ####
+####	    	       					   ####
+#####################################################ELN#######
+
+### Final report in MATRIX format (for ROW format, there is another software!)
+finrep='Example_files/test_FinalReport.txt' 
+
+### SNP map (orinal from Illumina)
+snpmap='Example_files/test_SnpMap.txt'      
+
+### Name of output PED and MAP files
+outname='test_outputfile'                   
+
+### This is used on the output "Fid" column (first in the PED) - eg. name of the breed
+brdcode='TEST'                              
+
+### # Options: ',' (for CSV) / ' ' (for TXT) / '\t' (for TSV)
+sep=','                                     

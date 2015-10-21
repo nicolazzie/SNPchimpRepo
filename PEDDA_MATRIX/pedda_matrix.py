@@ -3,8 +3,7 @@ import sys,os
 ''' This program converts Illumina matrix format into PLINK ped and map formats.
     It was NOT originally coded for release to the public, so coding and standards are not followed strictly.
     I release this following several requests from users.
-    NOTE: If you ask your Genotyping lab, they are able to give you an "official" PLINK file format for your gentoypes
-          There is a specific plugin in GenomeStudio that does that!
+    NOTE: If you ask your Genotyping lab, they are able to give you an "official" PLINK file format for your gentoypes. There is a specific plugin in GenomeStudio that does that!
 
     See ZANARDI PIPELINE to discover an easy solution to perform genomic analyses using the PLINK file formats!
     https://github.com/bioinformatics-ptp/Zanardi
@@ -15,19 +14,7 @@ import sys,os
     DISCLAIMER: See the usual GNU public disclaimer. Although I use this software quite on a regular basis,
              this is released under NO WARRANTY AT ALL (use at your own risk!).
 '''
-############################################################################################################################
-################################# MODIFY ONLY THESE VARIABLES ##############################################################
-############################################################################################################################
-
-finrep='Example_files/test_FinalReport.txt' # Final report in MATRIX format (for ROW format, there is another software!)
-snpmap='Example_files/test_SnpMap.txt'      # SNP map (orinal from Illumina)
-
-outname='test_outputfile'                   # Name of output PED and MAP files
-brdcode='TEST'                              # This will be used on the "Fid" column (first column in the PED)
-sep=','                                     # Options: ',' (for CSV) / ' ' (for TXT) / '\t' (for TSV)
-
-############################################################################################################################
-############################################################################################################################
+#### HEADER
 print "#"*60
 print "###                                                      ### "
 print "###               PEDDA MATRIX software                  ### "
@@ -36,6 +23,7 @@ print "###                                                      ### "
 print "###                              Coded by: E.L.Nicolazzi ### "
 print "#"*60
 
+#### USEFUL DEFs
 def bomb(message):
     print "ERROR: "+message
     sys.exit()
@@ -46,6 +34,20 @@ def check_file(value,name):
 
 def check_sep(value):
     if not value in ['\t',' ',',']:bomb("Separator provided in parameter 'sep' ( "+value+" ) not valid [options: ',',' ','\t']")
+
+
+#### READ PARAMETERS
+PARAMFILE_OPEN=open('peddam.param','r').readlines()
+PARAMETERS=[ind.strip().replace("'","").replace('"','').replace(';',',') for ind in PARAMFILE_OPEN
+if not '#' in ind[0]]
+PARAM=[]
+for i in PARAMETERS:
+    if not i: continue
+    PARAM.append(i.strip().split('=')[1])
+if PARAM[-1]=='\\t':PARAM[-1]='\t'
+
+if len(PARAM)!=5:bomb('Wrong number of parameters found in peddam.param. Please check it!')
+else:finrep,snpmap,outname,brdcode,sep=PARAM
 
 print "### Rough check of parameters"
 check_file(finrep,'finrep')

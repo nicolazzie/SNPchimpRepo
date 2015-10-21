@@ -6,7 +6,7 @@ History:
                     Fixed a bug caused by captial letters used internally (again, thans G.Pollott!)
    -Nov 2014 (ELN): Included a control over .ped length (controlling # columns - Thank you Christine Baes!)
 
-For bug report/comments: ezequiel.nicolazzi@tecnoparco.org
+For bug report/comments: ezequiel.nicolazzi@ptp.it
 """
 
 from optparse import OptionParser
@@ -267,9 +267,9 @@ if not onlymap:
                  ' SNPs. Probably their IN format is not as specified (or you specified a wrong missing value)')
         reped.write('%s %s\n' % (' '.join(pedline[:6]),' '.join(genout)))
 
-    if tab: logit('    - TAB used as separator for PLINK PED file')
+    if tab: logit('    - TAB used as separator for PLINK PED file')     
     else:  logit('    - SPACES used as separator for PLINK PED file')
     logit('    - Rows read in PLINK PED file (number of animals)   : ' + str(enped + 1))
-    if upd: logit('    - PED file updated, please see file                 : ' + PED.split('.')[0] + '_updated.map')
+    if upd: logit('    - PED file updated, please see file                 : ' + PED.split('.')[0] + '_updated.ped')
 
 logit('\n' + '*' * 81 + '\n==> PROGRAM ENDS: ' + time.strftime("%B %d, %Y - %l:%M%p %Z") + '\n' + '*' * 81 + '\n')

@@ -16,25 +16,7 @@ import sys,os
              this is released under NO WARRANTY AT ALL (use at your own risk!).
 '''
 
-############################################################################################################################
-################################# MODIFY ONLY THESE VARIABLES ##############################################################
-############################################################################################################################
-
-finrep='Example_files/test_FinalReport.txt' # Final report in ROW format (for matrix format, there is another software!)
-snpmap='Example_files/test_SnpMap.txt'      # SNP map (orinal from Illumina)
-
-allele='top'                                # Options: 'top', 'forward','ab'. 
-                                            # Often there are multiple allele codings in the row format files.
-                                            # Choose the one you wish to be included in your PLINK PED file.
-SNPid_pos='1'                               # Position of the SNP ID in the file (usually is the first field, but may change)
-INDid_pos='2'                               # Position of the INDIVIDUAL ID in the file (usually is the secodn field)
-
-outname='test_outputfile'                   # Name of output PED and MAP files
-brdcode='TEST'                              # This will be used on the "Fid" column (first column in the PED) 
-sep='\t'                                    # Options: ',' (for CSV) / ' ' (for TXT) / '\t' (for TSV)
-
-############################################################################################################################
-############################################################################################################################
+### HEADER
 print "#"*60
 print "###                                                      ### "
 print "###                  PEDDA software                      ### "
@@ -43,6 +25,7 @@ print "###                                                      ### "
 print "###                              Coded by: E.L.Nicolazzi ### "
 print "#"*60
 
+### USEFUL DEFs
 def bomb(message):
     print "ERROR: "+message
     sys.exit()
@@ -62,6 +45,18 @@ def check_pos(value,name):
 
 def check_sep(value):
     if not value in ['\t',' ',',']:bomb("Separator provided in parameter 'sep' ( "+value+" ) not valid [options: ',',' ','\t']")
+
+#### IMPORT parameter file
+PARAMFILE_OPEN=open('peddar.param','r').readlines()
+PARAMETERS=[ind.strip().replace("'","").replace('"','').replace(';',',') for ind in PARAMFILE_OPEN if not '#' in ind[0]]
+PARAM=[]
+for i in PARAMETERS:
+    if not i: continue
+    PARAM.append(i.strip().split('=')[1])
+if PARAM[-1]=='\\t':PARAM[-1]='\t'
+
+if len(PARAM)!=8:bomb('Wrong number of parameters found in peddam.param. Please check it!')
+else:finrep,snpmap,allele,SNPid_pos,INDid_pos,outname,brdcode,sep=PARAM
 
 print "### Rough check of parameters"
 ### Run checks on the parameters (add-on for user release)

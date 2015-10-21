@@ -20,11 +20,7 @@ To run these programs you need Python (2.x, latest Python highly recommended for
 
 
 #### **PEDDA_ROW**
-_pedda_row.py_ program converts Illumina ROW files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). Since this program was not originally coded to be released, there are no parameter files available. You need to directly edit the parameters in the program (see the "MODIFY HERE" section).
-
-First edit the parameters:
-1) open the pedda_row.py file (use your desired editor: emancs, vi, vim, nano, gedit, etc...)
-2) Modify the 8 parametersin the "MODIFY ONLY THERE VARIABLES SECTION" (leave everything else unchanged)
+_pedda_row.py_ program converts Illumina ROW files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). There is a specific parameter file to modify (peddar.param), the user is expected to modify according to the file(s) available: 
    - Variable **finrep** is the path to the FinalReport file (can be absolute or relative).
    - Variable **snpmap** is the path to the SNP map file, the one provided with any FinalReport (can be absolute or relative)
    - Variable **allele** is the allele strand you want to extract from the FinalReport file (options: "top","forward" or "ab")
@@ -44,11 +40,7 @@ For any question, feedback or bug report, please contact: ezequiel.nicolazzi@ptp
 
 
 #### **PEDDA_MATRIX**
-_pedda_matrix.py_ program converts Illumina MATRIX files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). Since this program was not originally coded to be released, there are no parameter files available. You need to directly edit the parameters in the program (see the "MODIFY HERE" section).
-
-First edit the parameters:
-1) open the pedda_matrix.py file (use your desired editor: emancs, vi, vim, nano, gedit, etc...)
-2) Modify the 5 parametersin the "MODIFY ONLY THERE VARIABLES SECTION" (leave everything else unchanged)
+_pedda_matrix.py_ program converts Illumina MATRIX files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). There is a specific parameter file to modify (peddar.param), the user is expected to modify according to the file(s) available:
    - Variable **finrep** is the path to the FinalReport file (can be absolute or relative).
    - Variable **snpmap** is the path to the SNP map file, the one provided with any FinalReport (can be absolute or relative)
    - Variable **outname** is the name of the output file (you'll find 2 files named as the name given + .ped and .map)
