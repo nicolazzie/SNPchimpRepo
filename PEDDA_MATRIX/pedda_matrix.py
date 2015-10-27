@@ -43,7 +43,7 @@ if not '#' in ind[0]]
 PARAM=[]
 for i in PARAMETERS:
     if not i: continue
-    PARAM.append(i.strip().split('=')[1])
+    PARAM.append(i.strip().split('=')[1].strip())
 if PARAM[-1]=='\\t':PARAM[-1]='\t'
 
 if len(PARAM)!=5:bomb('Wrong number of parameters found in peddam.param. Please check it!')
