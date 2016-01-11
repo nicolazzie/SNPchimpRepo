@@ -4,36 +4,37 @@ SNPchimpRepo: _a suite of useful programs for SNPchiMp users_
 
 
 The goal of this suite of programs is to help users doing some routine work without doing any actual programming. 
-This directory includes source codes, so you're able to see what it is doing step by step (please see "Disclaimer" section).
+This directory includes a GUI for Windows and Mac users (64bit) and source codes, so you're able to see what it is doing step by step (please see "Disclaimer" section).
 
 
 ### **1) Getting the programs and requirements**
-The fastest and more clever way of getting all the programs is cloning this repository (you need 'git' installed, of course!).
+The fastest and more clever way of getting the GUI and all the source codes is cloning this repository (you need 'git' installed, of course!).
 Further information on how to install git can be found at: http://git-scm.com/book/en/Getting-Started-Installing-Git . An example of cloning command using command line is: 
 
     % git clone --recursive https://github.com/nicolazzie/SNPchimpRepo
 
-Source codes are fully tested on Linux/Unix/Mac, but they should run on Windows OSs too. Please note that no support or troubleshooting for Windows-specific issues will be provided.
-To run the original programs you need Python (2.6+, although 2.7+ or latest is highly recommended for better performances) installed on your computer. Running the GUI has no requirements. The user should be able to run the software without having to install anything.
+The GUI was tested on Windows10 and Mac computers (64bits). Running the GUI has no requirements (just decompress and double click on the executable).
+Source codes were fully tested on Linux/Unix/Mac. To run these programs you need Python (2.6+, although 2.7+ or latest is highly recommended for better performances) installed on your computer. 
 
 
-### ** >> BETA >> 2.a) SNPConvert (Folder: "SNPConvertGUI_WinMac")**
-SNPConvert is a all-in-one user-friendly GUI for Windows (64bit only) and Mac (64bit only) users. Linux users are required to run the source codes from command line (See section 2.b). SNPConvert is able to convert any Illumina SNP-array raw format (ROW and MATRIX formats) to PLINK format, modify the allele coding of the file and the map information for any PLINK file (using SNPchimp output files). This GUI was built using PyQT project (full code provided) with the aid of QTDesigner, although the whole functionality of the program is based upon the 3 source codes in the "source" folder:
-  - Illumina ROW format: this option converts formats from Illumina ROW to PLINK (PED & MAP). It requires a "Final Report" file in **ROW** format, a SNP map file as input files (both provided by the genotyping lab). The user is free to choose the output allele coding, the population ID used (e.g. first column in PLINK PED file), and the output filename. The resulting file will be placed in the same folder of the input Final Report file. A runtime log window will guide the user on the process and outcomes of the program.
-  - Illumina MATRIX format: this option converts formats from Illumina MATRIX to PLINK. It requires a "Final Report" file in **MATRIX** format, a SNP map file as input files (both provided by the genotyping lab). The user is free to choose the population ID used (e.g. first column in PLINK ped file) and the output filename. The resulting file will be placed in the same folder of the input Final Report file. A runtime log window will guide the user on the process and outcomes of the program.
-  - iConvert software: this option maintains PLINK format, but converts allele coding and map information (if required). It requires 3 input files: one PLINK file couple (e.g. PED & MAP) and one SNPchimp (http://bioinformatics.tecnoparco.org/SNPchimp) "Download" menu output file (including both IN and OUT allele codings). iConvert handles all SNPchips of all species hosted in SNPchimp (both Illumina/Illumina-based and Affymetrix SNP chips). A runtime log window will guide the user on the process and outcomes of the program.
+### ** 2) >> BETA >> SNPConvert v1.0
+SNPConvert is a all-in-one user-friendly GUI for Windows and Mac 64bit users. 
+Linux users are required to use the source codes from command line (See section 3). SNPConvert is a simple GUI built from three programs you'll find in the "source_codes" folders. In fact, SNPConvert is able to convert any Illumina SNP-array raw format (ROW and MATRIX formats) to PLINK (PED & MAP), modify the allele coding of the file and the map information for any PLINK file (using SNPchimp output files). This GUI was built using PyQT project (full code provided). SNPConvert has 3 functionallities:
+  - Illumina ROW format: this option converts formats from Illumina ROW to PLINK (PED & MAP). It requires 2 input files: a "FinalReport" file in **ROW** format and a SNP map file (both provided by the genotyping lab). Please see the _ExampleData_ folder to see what a (fake) FinalReport in ROW format looks like. The user is then free of choosing the output allele coding, the population ID used (e.g. first column in PLINK PED file), and the output filename. The resulting file will be placed in the same folder of the input FinalReport file. A runtime log window will guide the user on the process and outcomes of the program.
+  - Illumina MATRIX format: this option converts formats from Illumina MATRIX to PLINK (PED & MAP). It requires 2 input files: a "FinalReport" file in **MATRIX** format and a SNP map file (both provided by the genotyping lab). Please see the _ExampleData_ folder to see what a (fake) FinalReport in MATRIX format looks like. The user is then free of choosing the population ID used (e.g. first column in PLINK ped file) and the output filename. The resulting file will be placed in the same folder of the input FinalReport file. A runtime log window will guide the user on the process and outcomes of the program.
+  - iConvert software: this option maintains PLINK format, but converts allele coding and map information (if required). It requires 3 input files: one PLINK file couple (e.g. PED & MAP) and one SNPchimp (http://bioinformatics.tecnoparco.org/SNPchimp) "Download" menu output file (including both IN and OUT allele codings). Please see the _ExampleData_ folder to see how all these files look like. iConvert handles all SNPchips of all species hosted in SNPchimp (both Illumina/Illumina-based and Affymetrix SNP chips). A runtime log window will guide the user on the process and outcomes of the program.
 
 #### How to run:
-Once downloaded (directly from GitHub, or cloning the repository), the executable needs to be unzipped (both windows and mac have utilities for that) and simply run by double-clicking on it. Note that since these are app/exe files, security warnings might pop up.
+Once downloaded, unzip the executable and simply run by double-clicking on it. Note that since these are app/exe files, security warnings might pop up.
 **NOTE TO MAC users**: you might need to temporarily allow third party apps to run ( System preferences --> Security & Privacy --> General --> Set "Allow apps downloaded from:" to Anywhere. Once the app is run the first time, this security feature can be restored to its original value.
 
 #### Temporary beta-disclaimer
 Although it still has to be improved from the graphical point of view, this BETA version is released as a preview to facilitate usage of these tools for non-linux/mac users. For feedback (HIGHLY appreciated) and bug report, please contact: ezequiel.nicolazzi@ptp.it
 
 
-### **2.b) Single Source Programs (Folder: "source")**
+### **3) Source Codes**
 
-Linux users are kindly asked to use the following programs. No GUI is provided.
+Linux users should run the programs contained in this folder from command line, as no GUI is available for Linux users.
 
 #### **PEDDA_ROW**
 _pedda_row.py_ program converts Illumina ROW files into PLINK format. You need 2 input files: one Illumina FinalReport file (in ROW format) and one SNP_Map (original from Illumina). There is a specific parameter file to modify (peddar.param), the user is expected to modify according to the file(s) available: 
@@ -98,7 +99,7 @@ _NOTE_:
 **_Self advertisement_: If you're using the Affymetrix technology, you might be interested in the AffyPipe software, that you can find at: https://github.com/nicolazzie/AffyPipe.git**
 
 
-### **Disclaimer**
+### **4) Disclaimer**
 _This repository is a set of free tools that uses proprietary software that is publicly available online: you can redistribute and/or modify these programs, but at your own risk. The programs above are distributed in the hope that they will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details: http://www.gnu.org/licenses/.this
 These programs are intended for research and have not a commercial intent, but they can be used freely by any organization. The only goal is to help people._
 _For bug report, feedback and questions (PLEASE read the carefully this README file before sending your question) contact ezequiel [dot] nicolazzi [at] tecnoparco [dot] org._
