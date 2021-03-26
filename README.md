@@ -3,10 +3,7 @@ SNPchimpRepo: _a suite of useful programs for SNPchiMp users_
 *ref: E.L. Nicolazzi (Fondazione Parco Tecnologico Padano) - Via Einstein, Loc. Cascina Codazza (26900) Lodi (Italy). Email: ezequiel [dot] nicolazzi [at] tecnoparco [dot] org*
 
 **
-IMPORTANT NOTE (20210326): I just got word one of my ex-colleagues, Paolo Cozzi, now working at the Italian Research Council and who I thank GREATLY for it, has revived the SNPchimp tool in his webserver. Info is still not updated since 2016 and I don’t know if there’ll be anyone maintaining it, but you can now download the maps and info as they were before the shut down.
-
-The new address is: http://webserver.ibba.cnr.it/SNPchimp/
-**
+IMPORTANT NOTE (20210326): I just got word one of my ex-colleagues, Paolo Cozzi, now working at the Italian Research Council and who I thank GREATLY for it, has revived the SNPchimp tool in his webserver. Info is still not updated since 2016 and I don’t know if there’ll be anyone maintaining it, but you can now download the maps and info as they were before the shut down. The new address is: http://webserver.ibba.cnr.it/SNPchimp/**
 
 
 
